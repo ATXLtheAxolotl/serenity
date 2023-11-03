@@ -22,7 +22,7 @@
 		"yarn": "3.6.1"
 	},
 	"dependencies": {
-		"@serenityjs/protocol": "^1.0.6",
+		"@serenityjs/protocol": "file:../serenity-protocol",
 		"@serenityjs/raknet.js": "^1.1.1",
 		"binarystream.js": "^0.2.5",
 		"chalk": "^4.0.0",
