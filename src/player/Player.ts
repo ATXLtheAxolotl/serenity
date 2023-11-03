@@ -1,5 +1,5 @@
-import type { Encapsulated, MoveMode, Vec2f, Vec3f } from '@serenityjs/protocol';
 import { AddPlayer, MovePlayer, PlayerList, Text, ChatTypes, ToastRequest } from '@serenityjs/protocol';
+import type { Encapsulated, MoveMode, Vec2f, Vec3f } from '@serenityjs/protocol';
 import type { Session } from '@serenityjs/raknet.js';
 import type { Serenity } from '../Serenity';
 import { PlayerAbilities } from '../abilities';
@@ -64,10 +64,7 @@ class Player {
 	}
 
 	public addPlayerToList(...players: Player[]): void {
-		// Check if length is 0
-		if (players.length === 0) {
-			return;
-		}
+		if (players.length === 0) return;
 
 		// Create the player list packet
 		const list = new PlayerList();
@@ -86,15 +83,12 @@ class Player {
 				isHost: false,
 			};
 		});
-		// Send the player list packet to the player
+		
 		return this.sendPacket(list);
 	}
 
 	public removePlayerFromList(...players: Player[]): void {
-		// Check if length is 0
-		if (players.length === 0) {
-			return;
-		}
+		if (players.length === 0) return;
 
 		// Create the player list packet
 		const list = new PlayerList();
@@ -105,15 +99,12 @@ class Player {
 				uuid: player.uuid,
 			};
 		});
-		// Send the player list packet to the player
+		
 		return this.sendPacket(list);
 	}
 
 	public spawnPlayer(...players: Player[]): void {
-		// Check if length is 0
-		if (players.length === 0) {
-			return;
-		}
+		if (players.length === 0) return;
 
 		// Loop through all the players
 		for (const player of players) {
@@ -155,10 +146,7 @@ class Player {
 	}
 
 	public broadcastMovement(mode: MoveMode, ...players: Player[]): void {
-		// Check if length is 0
-		if (players.length === 0) {
-			return;
-		}
+		if (players.length === 0) return;
 
 		for (const player of players) {
 			const packet = new MovePlayer();

@@ -14,8 +14,9 @@ class MovePlayerHandler extends PlayerHandler {
 		player.headYaw = packet.headYaw;
 		player.onGround = packet.onGround;
 
-		const players = [...player.world.players.values()].filter((p) => p !== player);
+		const players = player.world.players.values();
 		for (const p of players) {
+            if(p === player) continue;
 			p.broadcastMovement(packet.mode, player);
 		}
 	}
